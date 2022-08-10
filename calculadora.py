@@ -1,23 +1,45 @@
 from codecs import oem_decode
 from string import octdigits
 
+def calculate():
+    operation = input('''\nPlease type in the math operation you would like to complete: 
++ for addition
+- for subtraction
+* for multiplication
+/ for division\n\n Chosen operation: ''')
 
-operation = input('''\nPor favor digite a operação matemática que você gostaria de completar 
-+ para adição
-- para subtração
-* para multiplicação
-/ para divisão\n\n Operação escolhida: ''')
+    number_1 = int(input('\nEnter your first number: '))
+    number_2 = int(input('\nEnter your second number: '))
 
-number_1 = int(input('\nDigite o primeiro número: '))
-number_2 = int(input('\nDigite o segundo número: '))
+    if operation == '+':
+        print(f'\n{number_1} + {number_2} =', number_1 + number_2)
 
-if(operation == '+'):
-    print(f'\n{number_1} + {number_2} =', number_1 + number_2)
-elif(operation == '-'):
-    print(f'\n{number_1} - {number_2} =', number_1 - number_2)
-elif(operation == '*'):
-    print(f'\n{number_1} * {number_2} =', number_1 * number_2)
-elif(operation == '/'):
-    print(f'\n{number_1} / {number_2} =', number_1 / number_2)
-else:
-    print('\nVocê não digitou um operador válido, execute o programa novamente!')
+    elif operation == '-':
+        print(f'\n{number_1} - {number_2} =', number_1 - number_2)
+
+    elif operation == '*':
+        print(f'\n{number_1} * {number_2} =', number_1 * number_2)
+
+    elif operation == '/':
+        print(f'\n{number_1} / {number_2} =', number_1 / number_2)
+        
+    else:
+        print('\nYou have not typed a valid operator, please run the program again!')
+
+    # Add again() function to calculate() function
+    again()
+
+def again():
+    calc_again = input('''
+Do you want to calculate again?
+Please type Y for YES or N for NO
+''')
+
+    if calc_again.upper() == 'Y':
+        calculate()
+    elif calc_again.upper() == 'N':
+        print('See you later!')
+    else:
+        again()
+
+calculate()
