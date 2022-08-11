@@ -21,8 +21,10 @@ def calculate():
         print(f'\n{number_1} * {number_2} =', number_1 * number_2)
 
     elif operation == '/':
-        print(f'\n{number_1} / {number_2} =', number_1 / number_2)
-        
+        if number_2 != 0:
+            print(f'\n{number_1} / {number_2} =', number_1 / number_2)
+        else:
+            print('\nEnter a non-zero number for the second number')
     else:
         print('\nYou have not typed a valid operator, please run the program again!')
 
@@ -38,7 +40,7 @@ Please type Y for YES or N for NO
     if calc_again.upper() == 'Y':
         calculate()
     elif calc_again.upper() == 'N':
-        print('See you later!')
+        print('\nSee you later!')
     else:
         again()
 
